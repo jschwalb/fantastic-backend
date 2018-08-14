@@ -34,4 +34,9 @@ public class CalculatorController {
         return BigDecimal.valueOf(first).divide(BigDecimal.valueOf(second), 2, RoundingMode.HALF_UP);
     }
 
+    @GetMapping("/{first}mod{second}")
+    public long modulo(@PathVariable("first") long first, @PathVariable("second") long second) {
+        return first % second;
+    }
+
 }
