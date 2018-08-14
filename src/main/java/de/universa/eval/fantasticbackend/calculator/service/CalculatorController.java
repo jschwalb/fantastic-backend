@@ -14,24 +14,24 @@ import java.math.RoundingMode;
 @Slf4j
 public class CalculatorController {
 
-    @GetMapping("/add/first={first}&second={second}")
+    @GetMapping("/{first}+{second}")
     public long add(@PathVariable("first") long first, @PathVariable("second") long second) {
         return first + second;
     }
 
-    @GetMapping("/multiply/first={first}&second={second}")
+    @GetMapping("/{first}x{second}")
     public long multiply(@PathVariable("first") long first, @PathVariable("second") long second) {
         return first * second;
     }
 
-    @GetMapping("/minus/first={first}&second={second}")
+    @GetMapping("/{first}-{second}")
     public long minus(@PathVariable("first") long first, @PathVariable("second") long second) {
         return first - second;
     }
 
-    @GetMapping("/divide/first={first}&second={second}")
+    @GetMapping("/{first}div{second}")
     public BigDecimal divide(@PathVariable("first") long first, @PathVariable("second") long second) {
-        return BigDecimal.valueOf(first).divide(BigDecimal.valueOf(second), RoundingMode.HALF_UP);
+        return BigDecimal.valueOf(first).divide(BigDecimal.valueOf(second), 2, RoundingMode.HALF_UP);
     }
 
 }
